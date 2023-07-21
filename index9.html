@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Summarizer</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 80%;
+            max-width: 800px;
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+
+        input-text {
+            width: 100%; /* Adjust the width as needed */
+            height: 200px;
+            font-size: 15px;
+            resize: vertical;
+            margin: 0 auto; /* Center the text */
+        }
+
+        .summary {
+            margin-top: 20px;
+        }
+
+        .button {
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Text Summarizer</h2>
+        <form method="POST">
+            <input class="input-text" type="text" name="text" placeholder="Enter the text">
+            <br>
+            <input type="submit" value="Summarize" class="button">
+        </form>
+        {% if text %}
+        <h3>Original Text:</h3>
+        <p>{{ text }}</p>
+        {% endif %}
+        {% if summary %}
+        <div class="summary">
+            <h3>Summary:</h3>
+            <p>{{ summary }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
